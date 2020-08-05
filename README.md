@@ -2,7 +2,7 @@
 A collection of useful, vetted Javascript Utilities
 
 ## Code Guidelines
-The purpose of this repository is to house useful Javascript utilities that can be easily incorporated with any project that uses Javascript. As such, the utilities should be written with the assumption that no libraries are available. Utils should be written in [http://www.ecma-international.org/ecma-262/6.0/](ES6), and each util should be treated and structured as an [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules](ES6 module). On a yearly basis, the maximum ES version to use should be reevaluated to match BlueState's browser support guidenlines.
+The purpose of this repository is to house useful Javascript utilities that can be easily incorporated with any project that uses Javascript. As such, the utilities should be written with the assumption that no libraries are available. Utils should be written in [ES6](http://www.ecma-international.org/ecma-262/6.0/), and each util should be treated and structured as an [ES6 module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules). On a yearly basis, the maximum ES version to use should be reevaluated to match BlueState's browser support guidenlines.
 
 ### Git Workflow
 This site uses the Git Flow workflow as described in detail [here](https://nvie.com/posts/a-successful-git-branching-model/).
