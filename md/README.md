@@ -28,6 +28,11 @@ This site uses the Git Flow workflow as described in detail [here](https://nvie.
 - Version number in package.json should match the current release version
 - Once the version number is incremented and the release branch is merged into `master` a tag should be created named after the version number using the following pattern: `vN.NN.NN` where `N` matches the numerals of the version number.
 
+## Linting
+[ESLint](https://eslint.org) is available via gulp-eslint to lint the Javascript. See `./eslintrc.js` for the specific ESLint rules, which are essentially the airbnb eslint rules with a few modificactions given BlueState's workflow and client base.
+
+**All utilities _must_ pass linting prior to PR approval. Please lint your code _before_ committing/pushing or creating a PR.**
+
 <a name="generating"></a>
 ## Generating documentation
 This repository uses [jsdoc2md](https://github.com/jsdoc2md) via [gulp](https://gulpjs.com) task to output doucmentation of all utilities into this README. This requires that all utils and classes *must* have valid [JSDoc](https://jsdoc.app) commenting. **Pull requests including utils or classes that do not have valid JSDoc comments will be rejected until such commentary is added.**
