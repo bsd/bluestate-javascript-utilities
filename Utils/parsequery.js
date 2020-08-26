@@ -1,7 +1,7 @@
 /**
  * Converts search string from url into an object
  *
- * @param {String} string the string with the query
+ * @param {String} queryString the string with the query
  *
  * @return {object}
  */

@@ -10,8 +10,8 @@ export class MessageBus {
      * available on the current `this` context.
      *
      * @param {String} eventName Name of the custom event that is being triggered
-     * @param {Object=} options Object which should be passed in the message
-     * @param {Object=} element DOM node which the event should be attached to
+     * @param {Object} options Object which should be passed in the message
+     * @param {Object} element DOM node which the event should be attached to
      */
   sendEvent(eventName, options, element) {
     let evt = document.createEvent('CustomEvent');
