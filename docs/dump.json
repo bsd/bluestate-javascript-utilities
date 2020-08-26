@@ -1,0 +1,2467 @@
+[
+  {
+    "__docId__": 0,
+    "kind": "file",
+    "name": "Utils/alphabetizearray.js",
+    "content": "/**\n * Alphabetizes array by value\n *\n * @param {Array} array the array to sort\n * @return {Array} the sorted array\n */\nexport function alphabetizearray(array) {\n  return array.sort((a, b) => {\n    return a.localeCompare(b);\n  });\n}\n",
+    "static": true,
+    "longname": "Utils/alphabetizearray.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 1,
+    "kind": "function",
+    "name": "alphabetizearray",
+    "memberof": "Utils/alphabetizearray.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/alphabetizearray.js~alphabetizearray",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/alphabetizearray.js",
+    "importStyle": "{alphabetizearray}",
+    "description": "Alphabetizes array by value",
+    "lineNumber": 7,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Array"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "array",
+        "description": "the array to sort"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Array"
+      ],
+      "spread": false,
+      "description": "the sorted array"
+    }
+  },
+  {
+    "__docId__": 2,
+    "kind": "file",
+    "name": "Utils/closest.js",
+    "content": "/**\n * Looks for ancestor elemnt with given selector\n *\n * @param {HTMLElement} elem the elemnt to test\n * @param {String} selector the selector you're looking for\n * @return {HTMLElement} element The closest element\n */\nexport function closest(elem, selector) {\n  let element = elem;\n  let matchesSelector = element.matches || element.webkitMatchesSelector || element.mozMatchesSelector || element.msMatchesSelector;\n  while (element) {\n    if (matchesSelector.call(element, selector)) {\n      break;\n    }\n    element = element.parentElement;\n  }\n  return element;\n}\n",
+    "static": true,
+    "longname": "Utils/closest.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 3,
+    "kind": "function",
+    "name": "closest",
+    "memberof": "Utils/closest.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/closest.js~closest",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/closest.js",
+    "importStyle": "{closest}",
+    "description": "Looks for ancestor elemnt with given selector",
+    "lineNumber": 8,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "HTMLElement"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "elem",
+        "description": "the elemnt to test"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "selector",
+        "description": "the selector you're looking for"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "HTMLElement"
+      ],
+      "spread": false,
+      "description": "element The closest element"
+    }
+  },
+  {
+    "__docId__": 4,
+    "kind": "file",
+    "name": "Utils/convertdate.js",
+    "content": "const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];\n\n/**\n * Convert date to human readable\n *\n * @param {String} ISO an ISO date string\n * @return {String} human readable date\n */\nexport function convertdate(ISO) {\n  let thisDate = new Date(ISO);\n  let year = thisDate.getFullYear();\n  let month = monthNames[thisDate.getMonth()];\n  let day = thisDate.getDate();\n\n  return `${month } ${ day }, ${ year}`;\n}\n",
+    "static": true,
+    "longname": "Utils/convertdate.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 5,
+    "kind": "variable",
+    "name": "monthNames",
+    "memberof": "Utils/convertdate.js",
+    "static": true,
+    "longname": "Utils/convertdate.js~monthNames",
+    "access": null,
+    "export": false,
+    "importPath": "javscriptutilities/Utils/convertdate.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "string[]"
+      ]
+    }
+  },
+  {
+    "__docId__": 6,
+    "kind": "function",
+    "name": "convertdate",
+    "memberof": "Utils/convertdate.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/convertdate.js~convertdate",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/convertdate.js",
+    "importStyle": "{convertdate}",
+    "description": "Convert date to human readable",
+    "lineNumber": 9,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "ISO",
+        "description": "an ISO date string"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "String"
+      ],
+      "spread": false,
+      "description": "human readable date"
+    }
+  },
+  {
+    "__docId__": 7,
+    "kind": "file",
+    "name": "Utils/cookie.js",
+    "content": "/**\n * Given a cookie name, returns value of that cookie\n *\n * @param {String} name the name of the cookie\n * @return {String} the value of the cookie\n */\nexport function getcookie(name) {\n    const cookiestring = `${name}=`;\n    const decodedCookie = decodeURIComponent(document.cookie);\n    const cookies = decodedCookie.split(';');\n    for (let i = 0; i < cookies.length; i++) {\n        let cookie = cookies[i];\n        while (cookie.charAt(0) == ' ') {\n            cookie = cookie.substring(1);\n        }\n        if (cookie.indexOf(cookiestring) == 0) {\n            return cookie.substring(cookiestring.length, cookie.length);\n        }\n    }\n    return '';\n}\n\n/**\n * Create and set a cookie\n *\n * @param {String} name the name of the cookie\n * @param {String} value the value of the cookie\n * @param {Number} expire the number of days after which the cookie will expire\n */\nexport function setcookie(name, value, expire) {\n    const date = new Date();\n    date.setTime(date.getTime() + (expire*24*60*60*1000));\n    const expires = 'expires=' + date.toUTCString();\n    document.cookie = `${name}=${value};${expires};path=/`;\n}\n",
+    "static": true,
+    "longname": "Utils/cookie.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 8,
+    "kind": "function",
+    "name": "getcookie",
+    "memberof": "Utils/cookie.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/cookie.js~getcookie",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/cookie.js",
+    "importStyle": "{getcookie}",
+    "description": "Given a cookie name, returns value of that cookie",
+    "lineNumber": 7,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "name",
+        "description": "the name of the cookie"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "String"
+      ],
+      "spread": false,
+      "description": "the value of the cookie"
+    }
+  },
+  {
+    "__docId__": 9,
+    "kind": "function",
+    "name": "setcookie",
+    "memberof": "Utils/cookie.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/cookie.js~setcookie",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/cookie.js",
+    "importStyle": "{setcookie}",
+    "description": "Create and set a cookie",
+    "lineNumber": 30,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "name",
+        "description": "the name of the cookie"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "the value of the cookie"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "expire",
+        "description": "the number of days after which the cookie will expire"
+      }
+    ]
+  },
+  {
+    "__docId__": 10,
+    "kind": "file",
+    "name": "Utils/debounce.js",
+    "content": "/**\n * Returns a function, that, as long as it continues to be invoked, will not\n * be triggered. The function will be called after it stops being called for\n * N milliseconds. If `immediate` is passed, trigger the function on the\n * leading edge, instead of the trailing.\n *\n * @param  {Function} func A function to call after N milliseconds\n * @param  {number} wait The number of milliseconds to wait\n * @param  {boolean} immediate Trigger the function on the leading edge instead of the trailing\n * @return {Function} A function, that, as long as it continues to be invoked, will not be triggered\n */\nexport function debounce(func, wait, immediate) {\n  let timeout;\n  return function () {\n    let context = this;\n    let args = arguments;\n    let later = function () {\n      timeout = null;\n      if (!immediate) func.apply(context, args);\n    };\n    let callNow = immediate && !timeout;\n    clearTimeout(timeout);\n    timeout = setTimeout(later, wait);\n    if (callNow) func.apply(context, args);\n  };\n}\n",
+    "static": true,
+    "longname": "Utils/debounce.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 11,
+    "kind": "function",
+    "name": "debounce",
+    "memberof": "Utils/debounce.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/debounce.js~debounce",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/debounce.js",
+    "importStyle": "{debounce}",
+    "description": "Returns a function, that, as long as it continues to be invoked, will not\nbe triggered. The function will be called after it stops being called for\nN milliseconds. If `immediate` is passed, trigger the function on the\nleading edge, instead of the trailing.",
+    "lineNumber": 12,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "func",
+        "description": "A function to call after N milliseconds"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "wait",
+        "description": "The number of milliseconds to wait"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "boolean"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "immediate",
+        "description": "Trigger the function on the leading edge instead of the trailing"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Function"
+      ],
+      "spread": false,
+      "description": "A function, that, as long as it continues to be invoked, will not be triggered"
+    }
+  },
+  {
+    "__docId__": 12,
+    "kind": "file",
+    "name": "Utils/decodehtml.js",
+    "content": "/**\n * Parse to HTML\n *\n * @param {String} data data to parse into HTML\n * @return {HTMLElement} HTML\n */\nexport function decodehtml(data) {\n    const parser = new DOMParser;\n    const dom = parser.parseFromString(\n        '<!doctype html><body>' + data,\n        'text/html');\n    return dom.body.textContent;\n}\n",
+    "static": true,
+    "longname": "Utils/decodehtml.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 13,
+    "kind": "function",
+    "name": "decodehtml",
+    "memberof": "Utils/decodehtml.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/decodehtml.js~decodehtml",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/decodehtml.js",
+    "importStyle": "{decodehtml}",
+    "description": "Parse to HTML",
+    "lineNumber": 7,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "data",
+        "description": "data to parse into HTML"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "HTMLElement"
+      ],
+      "spread": false,
+      "description": "HTML"
+    }
+  },
+  {
+    "__docId__": 14,
+    "kind": "file",
+    "name": "Utils/generaterandominteger.js",
+    "content": "/**\n * Returns a random number\n *\n * @param {Number} max the highest number the random number can be\n * @return {Number} the rnadom number\n */\nexport function generaterandominteger(max) {\n  return Math.floor(Math.random() * Math.floor(max));\n}\n",
+    "static": true,
+    "longname": "Utils/generaterandominteger.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 15,
+    "kind": "function",
+    "name": "generaterandominteger",
+    "memberof": "Utils/generaterandominteger.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/generaterandominteger.js~generaterandominteger",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/generaterandominteger.js",
+    "importStyle": "{generaterandominteger}",
+    "description": "Returns a random number",
+    "lineNumber": 7,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "max",
+        "description": "the highest number the random number can be"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Number"
+      ],
+      "spread": false,
+      "description": "the rnadom number"
+    }
+  },
+  {
+    "__docId__": 16,
+    "kind": "file",
+    "name": "Utils/getuserlangauge.js",
+    "content": "/**\n * Returns user's first langauge preference in the browser\n *\n * @param {Boolean} uniform - true if a given langauge isn't localized per country (e.g. en-US va en-GB), false if it is\n */\nexport function getuserlangauge(uniform = true) {\n  const lang = navigator.languages ? navigator.languages[0] : navigator.language || navigator.userLanguage;\n  return uniform ? lang.substring(0, 2) : lang;\n}\n",
+    "static": true,
+    "longname": "Utils/getuserlangauge.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 17,
+    "kind": "function",
+    "name": "getuserlangauge",
+    "memberof": "Utils/getuserlangauge.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/getuserlangauge.js~getuserlangauge",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/getuserlangauge.js",
+    "importStyle": "{getuserlangauge}",
+    "description": "Returns user's first langauge preference in the browser",
+    "lineNumber": 6,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Boolean"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "uniform",
+        "description": "true if a given langauge isn't localized per country (e.g. en-US va en-GB), false if it is"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 18,
+    "kind": "file",
+    "name": "Utils/getyoutubeidfromurl.js",
+    "content": "/**\n * Returns YouTube ID from a YouTube URL\n *\n * @param {String} url a URL with a YouTube ID in it\n */\nexport function getyoutubeidfromurl(url) {\n  let ID = '';\n  url = url.replace(/(>|<)/gi, '').split(/(vi\\/|v=|\\/v\\/|youtu\\.be\\/|\\/embed\\/)/);\n\n  if (url[2] !== undefined) {\n    ID = url[2].split(/[^0-9a-z_\\-]/i);\n    ID = ID[0];\n  }\n  else {\n    ID = url;\n  }\n\n  return ID;\n}\n",
+    "static": true,
+    "longname": "Utils/getyoutubeidfromurl.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 19,
+    "kind": "function",
+    "name": "getyoutubeidfromurl",
+    "memberof": "Utils/getyoutubeidfromurl.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/getyoutubeidfromurl.js~getyoutubeidfromurl",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/getyoutubeidfromurl.js",
+    "importStyle": "{getyoutubeidfromurl}",
+    "description": "Returns YouTube ID from a YouTube URL",
+    "lineNumber": 6,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "url",
+        "description": "a URL with a YouTube ID in it"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 20,
+    "kind": "file",
+    "name": "Utils/hashover.js",
+    "content": "/**\n * Returns a Boolean corrsponding to whether or not the device/browser\n * in use is capable of hover events\n *\n * @return {Boolean} true if device is hover event-capable; false if not\n */\nexport function hashover() {\n  let hoverQuery = window.matchMedia('(hover: hover)');\n  let anyQuery = window.matchMedia('(any-hover: none), (any-pointer: coarse)');\n  return !!((hoverQuery.matches || !anyQuery.matches));\n}\n",
+    "static": true,
+    "longname": "Utils/hashover.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 21,
+    "kind": "function",
+    "name": "hashover",
+    "memberof": "Utils/hashover.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/hashover.js~hashover",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/hashover.js",
+    "importStyle": "{hashover}",
+    "description": "Returns a Boolean corrsponding to whether or not the device/browser\nin use is capable of hover events",
+    "lineNumber": 7,
+    "params": [],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Boolean"
+      ],
+      "spread": false,
+      "description": "true if device is hover event-capable; false if not"
+    }
+  },
+  {
+    "__docId__": 22,
+    "kind": "file",
+    "name": "Utils/hextorgb.js",
+    "content": "/**\n * Convert HEX color to RGB\n *\n * @param {String} hex a hex color\n * @return {String} A CSS rgb color value\n */\nexport function hextorgb(hex) {\n    const rgb = hex.replace(/^#?([a-f\\d])([a-f\\d])([a-f\\d])$/i\n        , (m, r, g, b) => '#' + r + r + g + g + b + b)\n        .substring(1).match(/.{2}/g)\n        .map((x) => parseInt(x, 16));\n\n    return `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`;\n}\n",
+    "static": true,
+    "longname": "Utils/hextorgb.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 23,
+    "kind": "function",
+    "name": "hextorgb",
+    "memberof": "Utils/hextorgb.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/hextorgb.js~hextorgb",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/hextorgb.js",
+    "importStyle": "{hextorgb}",
+    "description": "Convert HEX color to RGB",
+    "lineNumber": 7,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "hex",
+        "description": "a hex color"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "String"
+      ],
+      "spread": false,
+      "description": "A CSS rgb color value"
+    }
+  },
+  {
+    "__docId__": 24,
+    "kind": "file",
+    "name": "Utils/index.js",
+    "content": "export { alphabetizearray } from './alphabetizearray';\nexport { closest } from './closest';\nexport { createloader } from './loader';\nexport { convertdate } from './convertdate';\nexport { debounce } from './debounce';\nexport { generaterandominteger } from './generaterandominteger';\nexport { getuserlangauge } from './getuserlangauge';\nexport { getyoutubeidfromurl } from './getyoutubeidfromurl';\nexport { hashover } from './hashover';\nexport { isobjectempty } from './isobjectempty';\nexport { MessageBus } from './messagebus';\nexport { numbertoarray } from './numbertoarray';\nexport { parsequery } from './queryparser';\nexport { objectcontains } from './objectcontains';\nexport { objectfromformdata } from './objectfromformdata';\nexport { openpopup } from './openpopup';\nexport { removeloader } from './loader';\nexport { removeintegers } from './removeintegers';\nexport { removequerystring } from './removequerystring';\nexport { SocialShare } from './socialshare';\nexport { spacetohyphen } from './spacetohyphen';\nexport { striphtml } from './striphtml';\nexport { truncatetext } from './truncatetext';\nexport { urlencoder } from './urlencoder';\nexport { Validation } from './validation';\n",
+    "static": true,
+    "longname": "Utils/index.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 25,
+    "kind": "file",
+    "name": "Utils/interpolatenumbers.js",
+    "content": "/**\n * A function which moves from one value to another by a certain percent\n *\n * @param {Integer} from the starting number\n * @param {Integer} to the destination number\n * @param {Float} by percentage by which to change\n * @return {Integer} the changed amount, rounded to the nearest integer\n */\nexport function interpolatenumbers(from, to, by) {\n    return Math.round((1 - by) * from + by * to);\n}\n",
+    "static": true,
+    "longname": "Utils/interpolatenumbers.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 26,
+    "kind": "function",
+    "name": "interpolatenumbers",
+    "memberof": "Utils/interpolatenumbers.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/interpolatenumbers.js~interpolatenumbers",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/interpolatenumbers.js",
+    "importStyle": "{interpolatenumbers}",
+    "description": "A function which moves from one value to another by a certain percent",
+    "lineNumber": 9,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Integer"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "from",
+        "description": "the starting number"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Integer"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "to",
+        "description": "the destination number"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Float"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "by",
+        "description": "percentage by which to change"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Integer"
+      ],
+      "spread": false,
+      "description": "the changed amount, rounded to the nearest integer"
+    }
+  },
+  {
+    "__docId__": 27,
+    "kind": "file",
+    "name": "Utils/isie.js",
+    "content": "/**\n * Checks if user is running Internet Explorer\n *\n * @return {Boolean} true is IE, false if not\n */\nexport function isie() {\n    if (!!navigator.userAgent.match(/Trident\\/7\\./)) {\n        return true;\n    }\n    return false;\n}\n\n\n",
+    "static": true,
+    "longname": "Utils/isie.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 28,
+    "kind": "function",
+    "name": "isie",
+    "memberof": "Utils/isie.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/isie.js~isie",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/isie.js",
+    "importStyle": "{isie}",
+    "description": "Checks if user is running Internet Explorer",
+    "lineNumber": 6,
+    "params": [],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Boolean"
+      ],
+      "spread": false,
+      "description": "true is IE, false if not"
+    }
+  },
+  {
+    "__docId__": 29,
+    "kind": "file",
+    "name": "Utils/isobjectempty.js",
+    "content": "/**\n * Checks if object exists and is populated\n *\n * @param {Object} obj the object to test\n *\n * @return {Boolean} true is empty, false if not\n */\nexport function isobjectempty(obj) {\n  if (typeof obj !== 'undefined') {\n    return Object.keys(obj).length === 0 && obj.constructor === Object;\n  }\n  return true;\n}\n",
+    "static": true,
+    "longname": "Utils/isobjectempty.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 30,
+    "kind": "function",
+    "name": "isobjectempty",
+    "memberof": "Utils/isobjectempty.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/isobjectempty.js~isobjectempty",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/isobjectempty.js",
+    "importStyle": "{isobjectempty}",
+    "description": "Checks if object exists and is populated",
+    "lineNumber": 8,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "obj",
+        "description": "the object to test"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Boolean"
+      ],
+      "spread": false,
+      "description": "true is empty, false if not"
+    }
+  },
+  {
+    "__docId__": 31,
+    "kind": "file",
+    "name": "Utils/isscrolledintoview.js",
+    "content": "/**\n * A function which measures the elements position on the page in\n * relation to the what the user can currently see on their screen\n * and returns a boolean value with `true` being that the element\n * is visible and `false` being that it is not visible.\n *\n * @param  {Object}  elem A DOM element\n * @return {Boolean} isVisible A boolean value with `true` representing that the element is visible\n */\nexport function isscrolledintoview(elem) {\n    const elementBounds = elem.getBoundingClientRect();\n    return elementBounds.top < window.innerHeight && elementBounds.bottom >= 0;\n}\n\n",
+    "static": true,
+    "longname": "Utils/isscrolledintoview.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 32,
+    "kind": "function",
+    "name": "isscrolledintoview",
+    "memberof": "Utils/isscrolledintoview.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/isscrolledintoview.js~isscrolledintoview",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/isscrolledintoview.js",
+    "importStyle": "{isscrolledintoview}",
+    "description": "A function which measures the elements position on the page in\nrelation to the what the user can currently see on their screen\nand returns a boolean value with `true` being that the element\nis visible and `false` being that it is not visible.",
+    "lineNumber": 10,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "elem",
+        "description": "A DOM element"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Boolean"
+      ],
+      "spread": false,
+      "description": "isVisible A boolean value with `true` representing that the element is visible"
+    }
+  },
+  {
+    "__docId__": 33,
+    "kind": "file",
+    "name": "Utils/loader.js",
+    "content": "/**\n * Add DOM element for loading graphic to passed-in element\n *\n * @param {HTMLElement} element the element to which to add the loader\n */\nexport function createloader(element) {\n  const LOADING = 'loading';\n  let loader = document.createElement('div');\n  loader.appendChild(document.createTextNode(LOADING));\n  loader.classList.add(LOADING);\n  element.appendChild(loader);\n}\n\n/**\n * Remove DOM element for loading graphic from passed-in element\n *\n * @param {HTMLElement} element the element from which to remove the loader\n */\nexport function removeloader(element) {\n  let loader = element.querySelector('.loading');\n  element.removeChild(loader);\n}\n",
+    "static": true,
+    "longname": "Utils/loader.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 34,
+    "kind": "function",
+    "name": "createloader",
+    "memberof": "Utils/loader.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/loader.js~createloader",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/loader.js",
+    "importStyle": "{createloader}",
+    "description": "Add DOM element for loading graphic to passed-in element",
+    "lineNumber": 6,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "HTMLElement"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "element",
+        "description": "the element to which to add the loader"
+      }
+    ]
+  },
+  {
+    "__docId__": 35,
+    "kind": "function",
+    "name": "removeloader",
+    "memberof": "Utils/loader.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/loader.js~removeloader",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/loader.js",
+    "importStyle": "{removeloader}",
+    "description": "Remove DOM element for loading graphic from passed-in element",
+    "lineNumber": 19,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "HTMLElement"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "element",
+        "description": "the element from which to remove the loader"
+      }
+    ]
+  },
+  {
+    "__docId__": 36,
+    "kind": "file",
+    "name": "Utils/messagebus.js",
+    "content": "/**\n * A class which helps sending messages accoss modules via a DOM node\n */\nexport class MessageBus {\n  /**\n     * sendEvent\n     *\n     * A function which lets you dispatch a custom event on\n     * a Node. If the element is passed, it uses the element\n     * available on the current `this` context.\n     *\n     * @param {String} eventName Name of the custom event that is being triggered\n     * @param {Object} options Object which should be passed in the message\n     * @param {Object} element DOM node which the event should be attached to\n     */\n  sendEvent(eventName, options, element) {\n    let evt = document.createEvent('CustomEvent');\n    evt.initCustomEvent(eventName, false, false, options);\n    (element || this.element).dispatchEvent(evt);\n  }\n}\n",
+    "static": true,
+    "longname": "Utils/messagebus.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 37,
+    "kind": "class",
+    "name": "MessageBus",
+    "memberof": "Utils/messagebus.js",
+    "static": true,
+    "longname": "Utils/messagebus.js~MessageBus",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/messagebus.js",
+    "importStyle": "{MessageBus}",
+    "description": "A class which helps sending messages accoss modules via a DOM node",
+    "lineNumber": 4,
+    "interface": false
+  },
+  {
+    "__docId__": 38,
+    "kind": "method",
+    "name": "sendEvent",
+    "memberof": "Utils/messagebus.js~MessageBus",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "Utils/messagebus.js~MessageBus#sendEvent",
+    "access": null,
+    "description": "sendEvent\n\nA function which lets you dispatch a custom event on\na Node. If the element is passed, it uses the element\navailable on the current `this` context.",
+    "lineNumber": 16,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "eventName",
+        "description": "Name of the custom event that is being triggered"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options",
+        "description": "Object which should be passed in the message"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "element",
+        "description": "DOM node which the event should be attached to"
+      }
+    ]
+  },
+  {
+    "__docId__": 39,
+    "kind": "file",
+    "name": "Utils/numbertoarray.js",
+    "content": "/**\n * Given a number, creates an aray and populates the array\n * with numbers from 0 to given number\n *\n * @param {Number} number the number\n * @return {Array} the array of numbers\n */\nexport function numbertoarray(number) {\n  let numbers = [];\n  for (let i = 0; i <= number; i++) {\n    numbers.push(i);\n  }\n  return numbers;\n}\n",
+    "static": true,
+    "longname": "Utils/numbertoarray.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 40,
+    "kind": "function",
+    "name": "numbertoarray",
+    "memberof": "Utils/numbertoarray.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/numbertoarray.js~numbertoarray",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/numbertoarray.js",
+    "importStyle": "{numbertoarray}",
+    "description": "Given a number, creates an aray and populates the array\nwith numbers from 0 to given number",
+    "lineNumber": 8,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "number",
+        "description": "the number"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Array"
+      ],
+      "spread": false,
+      "description": "the array of numbers"
+    }
+  },
+  {
+    "__docId__": 41,
+    "kind": "file",
+    "name": "Utils/objectcontains.js",
+    "content": "/**\n * Checks if object contains value\n *\n * @param {Object} obj the object to test\n * @param {String} value the value to test for\n *\n * @return {Boolean} true if value exists in obj, false if not\n */\nexport function objectcontains(obj, value) {\n  for (let val in obj) {\n    if (obj[val] === value) {\n      return true;\n    }\n  }\n\n  return false;\n}\n",
+    "static": true,
+    "longname": "Utils/objectcontains.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 42,
+    "kind": "function",
+    "name": "objectcontains",
+    "memberof": "Utils/objectcontains.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/objectcontains.js~objectcontains",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/objectcontains.js",
+    "importStyle": "{objectcontains}",
+    "description": "Checks if object contains value",
+    "lineNumber": 9,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "obj",
+        "description": "the object to test"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "the value to test for"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Boolean"
+      ],
+      "spread": false,
+      "description": "true if value exists in obj, false if not"
+    }
+  },
+  {
+    "__docId__": 43,
+    "kind": "file",
+    "name": "Utils/objectfromformdata.js",
+    "content": "/**\n * Converts FormData object to regular object\n *\n * @param {Object} formdata a FormData object\n *\n * @return {Boolean} a regualar old object\n */\nexport function objectfromformdata(formdata) {\n  let object = {};\n  formdata.forEach((value, key) => {\n    if (!object.hasOwnProperty(key)) {\n      object[key] = value;\n      return;\n    }\n    if (!Array.isArray(object[key])) {\n      object[key] = [object[key]];\n    }\n    object[key].push(value);\n  });\n\n  return object;\n}\n",
+    "static": true,
+    "longname": "Utils/objectfromformdata.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 44,
+    "kind": "function",
+    "name": "objectfromformdata",
+    "memberof": "Utils/objectfromformdata.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/objectfromformdata.js~objectfromformdata",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/objectfromformdata.js",
+    "importStyle": "{objectfromformdata}",
+    "description": "Converts FormData object to regular object",
+    "lineNumber": 8,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "formdata",
+        "description": "a FormData object"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Boolean"
+      ],
+      "spread": false,
+      "description": "a regualar old object"
+    }
+  },
+  {
+    "__docId__": 45,
+    "kind": "file",
+    "name": "Utils/openpopup.js",
+    "content": "/**\n * A function which opens a popup window\n *\n * @param  {String} url the url to open in the popup\n * @param  {String} windowName a unique name for the popup\n * @param  {Integer} w the desired width of the popup\n * @param  {Integer} h the desired height of the popup\n * @return {Object} an object the popup function is bound to\n */\nexport function openpopup(url, windowName, w, h) {\n  return window.open(url, windowName,\n    `menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes,width=${ w },height=${ h }`);\n}\n",
+    "static": true,
+    "longname": "Utils/openpopup.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 46,
+    "kind": "function",
+    "name": "openpopup",
+    "memberof": "Utils/openpopup.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/openpopup.js~openpopup",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/openpopup.js",
+    "importStyle": "{openpopup}",
+    "description": "A function which opens a popup window",
+    "lineNumber": 10,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "url",
+        "description": "the url to open in the popup"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "windowName",
+        "description": "a unique name for the popup"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Integer"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "w",
+        "description": "the desired width of the popup"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Integer"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "h",
+        "description": "the desired height of the popup"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": "an object the popup function is bound to"
+    }
+  },
+  {
+    "__docId__": 47,
+    "kind": "file",
+    "name": "Utils/parsequery.js",
+    "content": "/**\n * Converts search string from url into an object\n *\n * @param {String} queryString the string with the query\n *\n * @return {object}\n */\nexport function parsequery(queryString) {\n  let query = {};\n  let pairs = (queryString[0] === '?' ? queryString.substr(1) : queryString).split('&');\n  for (let i = 0; i < pairs.length; i++) {\n    let pair = pairs[i].split('=');\n    query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');\n  }\n  return query;\n}\n",
+    "static": true,
+    "longname": "Utils/parsequery.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 48,
+    "kind": "function",
+    "name": "parsequery",
+    "memberof": "Utils/parsequery.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/parsequery.js~parsequery",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/parsequery.js",
+    "importStyle": "{parsequery}",
+    "description": "Converts search string from url into an object",
+    "lineNumber": 8,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "queryString",
+        "description": "the string with the query"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "object"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 49,
+    "kind": "file",
+    "name": "Utils/removeintegers.js",
+    "content": "/**\n * Remove integers from a string\n *\n * @param {String} string the string with the integer in need of conversion\n *\n * @return {Boolean} the converted string\n */\nexport function removeintegers(string) {\n  return string.replace(/[0-9]/g, '');\n}\n",
+    "static": true,
+    "longname": "Utils/removeintegers.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 50,
+    "kind": "function",
+    "name": "removeintegers",
+    "memberof": "Utils/removeintegers.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/removeintegers.js~removeintegers",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/removeintegers.js",
+    "importStyle": "{removeintegers}",
+    "description": "Remove integers from a string",
+    "lineNumber": 8,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "string",
+        "description": "the string with the integer in need of conversion"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Boolean"
+      ],
+      "spread": false,
+      "description": "the converted string"
+    }
+  },
+  {
+    "__docId__": 51,
+    "kind": "file",
+    "name": "Utils/removequerystring.js",
+    "content": "/**\n * Removes query string from URI via history.pushState\n *\n */\nexport function removequerystring() {\n  let uri = window.location.toString();\n  if (uri.indexOf('?') > 0) {\n    let cleanuri = uri.substring(0, uri.indexOf('?'));\n    window.history.replaceState({}, document.title, cleanuri);\n  }\n}\n",
+    "static": true,
+    "longname": "Utils/removequerystring.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 52,
+    "kind": "function",
+    "name": "removequerystring",
+    "memberof": "Utils/removequerystring.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/removequerystring.js~removequerystring",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/removequerystring.js",
+    "importStyle": "{removequerystring}",
+    "description": "Removes query string from URI via history.pushState",
+    "lineNumber": 5,
+    "params": []
+  },
+  {
+    "__docId__": 53,
+    "kind": "file",
+    "name": "Utils/serialize.js",
+    "content": "/**\n * A function which serializes data\n *\n * @param  {Object} object the object to be serialized\n * @return {String} the serialized string\n */\nexport function serialize(object) {\n    const serialized = [];\n    for (const key in object) {\n        if (object.hasOwnProperty(key)) {\n            serialized.push(encodeURIComponent(key) + '=' + encodeURIComponent(object[key]));\n        }\n    }\n    return serialized.join('&');\n}\n",
+    "static": true,
+    "longname": "Utils/serialize.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 54,
+    "kind": "function",
+    "name": "serialize",
+    "memberof": "Utils/serialize.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/serialize.js~serialize",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/serialize.js",
+    "importStyle": "{serialize}",
+    "description": "A function which serializes data",
+    "lineNumber": 7,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "object",
+        "description": "the object to be serialized"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "String"
+      ],
+      "spread": false,
+      "description": "the serialized string"
+    }
+  },
+  {
+    "__docId__": 55,
+    "kind": "file",
+    "name": "Utils/socialshare.js",
+    "content": "import { openpopup } from './openpopup';\nimport { MISC, SELECTORS } from '../Constants/index';\n\n/**\n * A SocialShare module which handles Facebook and Twitter social share buttons\n *\n * @class SocialShare\n */\nexport class SocialShare {\n  constructor() {\n    /**\n         * OGINFO\n         *\n         * An object containing OG tag data pulled from og tags\n         *\n         * @type {Object}\n         * @ignore\n         */\n    this.OGINFO = {\n      DESC: null,\n      URL: null,\n      TITLE: null,\n    };\n\n    this.OGSTRINGS = {\n      OGDESC: 'meta[property=\"og:description\"]',\n      OGTITLE: 'meta[property=\"og:title\"]',\n      OGURL: 'meta[property=\"og:url\"]',\n    }\n  }\n\n  /**\n     * Get OG data from page's OG tags\n     * Set defaults if no tags available\n     *\n     * @return {Object} SocialShare A reference to the instance of the class\n     * @chainable\n     */\n  getOGData() {\n    // First, see if we get the URL from a FB OG tag\n    Object.keys(this.OGINFO).forEach((key) => {\n      let node = document.querySelector(this.OGSTRINGS[`OG${ key}`]);\n\n      if (node) {\n        this.OGINFO[key] = node.getAttribute('content');\n      }\n    });\n\n    // if not, is there a canoical URL?\n    if (!this.OGINFO.URL) {\n      // set to the URL in the location bar, just in case\n      let canonical = window.location;\n      let links = document.getElementsByTagName('link');\n\n      for (let i = 0; i < links.length; i++) {\n        if (links[i].getAttribute('rel') === 'canonical') {\n          canonical = links[i].getAttribute('href');\n        }\n      }\n\n      this.OGINFO.URL = canonical;\n    }\n\n    return this;\n  }\n\n  /**\n     * Facebook share\n     *\n     */\n  facebookShare() {\n    this.getOGData();\n    const shareURL = '//www.facebook.com/sharer.php?u=' + this.OGINFO.URL;\n    openpopup(shareURL, 'FacebookShare', 420, 300);\n  }\n\n  /**\n     * Twitter share\n     *\n     */\n  twitterShare() {\n    this.getOGData();\n    const shareURL = '//twitter.com/share?url=' + this.OGINFO.URL;\n    openpopup(shareURL, 'TwitterShare', 320, 300);\n  }\n}\n",
+    "static": true,
+    "longname": "Utils/socialshare.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 56,
+    "kind": "class",
+    "name": "SocialShare",
+    "memberof": "Utils/socialshare.js",
+    "static": true,
+    "longname": "Utils/socialshare.js~SocialShare",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/socialshare.js",
+    "importStyle": "{SocialShare}",
+    "description": "A SocialShare module which handles Facebook and Twitter social share buttons",
+    "lineNumber": 9,
+    "unknown": [
+      {
+        "tagName": "@class",
+        "tagValue": "SocialShare"
+      }
+    ],
+    "interface": false
+  },
+  {
+    "__docId__": 57,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "Utils/socialshare.js~SocialShare",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "Utils/socialshare.js~SocialShare#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": []
+  },
+  {
+    "__docId__": 58,
+    "kind": "member",
+    "name": "OGINFO",
+    "memberof": "Utils/socialshare.js~SocialShare",
+    "static": false,
+    "longname": "Utils/socialshare.js~SocialShare#OGINFO",
+    "access": null,
+    "description": "OGINFO\n\nAn object containing OG tag data pulled from og tags",
+    "lineNumber": 19,
+    "ignore": true,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 59,
+    "kind": "member",
+    "name": "OGSTRINGS",
+    "memberof": "Utils/socialshare.js~SocialShare",
+    "static": false,
+    "longname": "Utils/socialshare.js~SocialShare#OGSTRINGS",
+    "access": null,
+    "description": null,
+    "lineNumber": 25,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"OGDESC\": string, \"OGTITLE\": string, \"OGURL\": string}"
+      ]
+    }
+  },
+  {
+    "__docId__": 60,
+    "kind": "method",
+    "name": "getOGData",
+    "memberof": "Utils/socialshare.js~SocialShare",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "Utils/socialshare.js~SocialShare#getOGData",
+    "access": null,
+    "description": "Get OG data from page's OG tags\nSet defaults if no tags available",
+    "lineNumber": 39,
+    "unknown": [
+      {
+        "tagName": "@chainable",
+        "tagValue": ""
+      }
+    ],
+    "params": [],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": "SocialShare A reference to the instance of the class"
+    }
+  },
+  {
+    "__docId__": 61,
+    "kind": "method",
+    "name": "facebookShare",
+    "memberof": "Utils/socialshare.js~SocialShare",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "Utils/socialshare.js~SocialShare#facebookShare",
+    "access": null,
+    "description": "Facebook share",
+    "lineNumber": 71,
+    "params": []
+  },
+  {
+    "__docId__": 62,
+    "kind": "method",
+    "name": "twitterShare",
+    "memberof": "Utils/socialshare.js~SocialShare",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "Utils/socialshare.js~SocialShare#twitterShare",
+    "access": null,
+    "description": "Twitter share",
+    "lineNumber": 81,
+    "params": []
+  },
+  {
+    "__docId__": 63,
+    "kind": "file",
+    "name": "Utils/spacetohyphen.js",
+    "content": "/**\n * Converts spaces in a string to a hyphen\n *\n * @param {String} string the string with spaces in need of conversion\n *\n * @return {Boolean} the converted string\n */\nexport function spacetohyphen(string) {\n  return string.replace(/\\s+/g, '-');\n}\n",
+    "static": true,
+    "longname": "Utils/spacetohyphen.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 64,
+    "kind": "function",
+    "name": "spacetohyphen",
+    "memberof": "Utils/spacetohyphen.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/spacetohyphen.js~spacetohyphen",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/spacetohyphen.js",
+    "importStyle": "{spacetohyphen}",
+    "description": "Converts spaces in a string to a hyphen",
+    "lineNumber": 8,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "string",
+        "description": "the string with spaces in need of conversion"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Boolean"
+      ],
+      "spread": false,
+      "description": "the converted string"
+    }
+  },
+  {
+    "__docId__": 65,
+    "kind": "file",
+    "name": "Utils/striphtml.js",
+    "content": "/**\n * Given an HTML string, eturns a string of plain text\n *\n * @param  {Object} html - string of html to strip\n * @return {String} A plain text string\n */\nexport function striphtml(html) {\n  const parsed = new DOMParser().parseFromString(html, 'text/html');\n\n  return parsed.body.textContent || '';\n}\n",
+    "static": true,
+    "longname": "Utils/striphtml.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 66,
+    "kind": "function",
+    "name": "striphtml",
+    "memberof": "Utils/striphtml.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/striphtml.js~striphtml",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/striphtml.js",
+    "importStyle": "{striphtml}",
+    "description": "Given an HTML string, eturns a string of plain text",
+    "lineNumber": 7,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "html",
+        "description": "string of html to strip"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "String"
+      ],
+      "spread": false,
+      "description": "A plain text string"
+    }
+  },
+  {
+    "__docId__": 67,
+    "kind": "file",
+    "name": "Utils/truncatetext.js",
+    "content": "/**\n * Truncates text to desired character length, optinally includes ellipsis and trunactes to wro boundary\n *\n * @param {String} string the string in need of truncating\n * @param {Number} maxLength the length of the desired text string\n * @param {Boolean} useWordBoundary should anything be appeneded to the end? Defaults to true\n * @param {String} ellipsis the string to append, if so; defaults to '...'\n *\n * @return {Boolean} the truncated string\n */\nexport function truncatetext(string, maxLength, useWordBoundary = true, ellipsis = '...') {\n  if (str.length > maxLength) {\n    const substring = str.slice(0, maxLength - ellipsis.length);\n    return useWordBoundary ? substring.substr(0, substring.lastIndexOf(' ')) + ellipsis : substring + ellipsis;\n  }\n  return str;\n}\n",
+    "static": true,
+    "longname": "Utils/truncatetext.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 68,
+    "kind": "function",
+    "name": "truncatetext",
+    "memberof": "Utils/truncatetext.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/truncatetext.js~truncatetext",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/truncatetext.js",
+    "importStyle": "{truncatetext}",
+    "description": "Truncates text to desired character length, optinally includes ellipsis and trunactes to wro boundary",
+    "lineNumber": 11,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "string",
+        "description": "the string in need of truncating"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "maxLength",
+        "description": "the length of the desired text string"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Boolean"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "useWordBoundary",
+        "description": "should anything be appeneded to the end? Defaults to true"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "ellipsis",
+        "description": "the string to append, if so; defaults to '...'"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Boolean"
+      ],
+      "spread": false,
+      "description": "the truncated string"
+    }
+  },
+  {
+    "__docId__": 69,
+    "kind": "file",
+    "name": "Utils/urlencoder.js",
+    "content": "/**\n * Returns a URL encoded string for use in submission to Tools API\n *\n * @param  {Object} requestdata JSON to return as URL Encoded string\n * @return {String} A URLEncoded string\n */\nexport function urlencoder(requestdata) {\n  const encoded = Object.keys(requestdata).map((key) => {\n    return `${encodeURIComponent(key) }=${ encodeURIComponent(requestdata[key])}`;\n  }).join('&');\n\n  return encoded;\n}\n",
+    "static": true,
+    "longname": "Utils/urlencoder.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 70,
+    "kind": "function",
+    "name": "urlencoder",
+    "memberof": "Utils/urlencoder.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "Utils/urlencoder.js~urlencoder",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/urlencoder.js",
+    "importStyle": "{urlencoder}",
+    "description": "Returns a URL encoded string for use in submission to Tools API",
+    "lineNumber": 7,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "requestdata",
+        "description": "JSON to return as URL Encoded string"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "String"
+      ],
+      "spread": false,
+      "description": "A URLEncoded string"
+    }
+  },
+  {
+    "__docId__": 71,
+    "kind": "file",
+    "name": "Utils/validation.js",
+    "content": "/**\n * A class which handles field validations\n */\nexport class Validation {\n  /**\n     * validate\n     *\n     * A function which processes validations\n     * NOTE: this could be expanded and reused\n     *\n     * @param {String=} fieldvalue tthe value of the field to be validated\n     * @param {String=} fieldtype type of field to be validated\n     * @param {Object=} rules validation rules\n     * @param {String=} type are we matching or testing? Default = match\n     */\n  validate(fieldvalue, fieldtype, rules, type = MISC.MATCH) {\n    return type === 'match' ? fieldvalue.match(rules[fieldtype].rule) : rules[fieldtype].rule.test(fieldvalue);\n  }\n}\n",
+    "static": true,
+    "longname": "Utils/validation.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 72,
+    "kind": "class",
+    "name": "Validation",
+    "memberof": "Utils/validation.js",
+    "static": true,
+    "longname": "Utils/validation.js~Validation",
+    "access": null,
+    "export": true,
+    "importPath": "javscriptutilities/Utils/validation.js",
+    "importStyle": "{Validation}",
+    "description": "A class which handles field validations",
+    "lineNumber": 4,
+    "interface": false
+  },
+  {
+    "__docId__": 73,
+    "kind": "method",
+    "name": "validate",
+    "memberof": "Utils/validation.js~Validation",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "Utils/validation.js~Validation#validate",
+    "access": null,
+    "description": "validate\n\nA function which processes validations\nNOTE: this could be expanded and reused",
+    "lineNumber": 16,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String="
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "fieldvalue",
+        "description": "tthe value of the field to be validated"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String="
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "fieldtype",
+        "description": "type of field to be validated"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Object="
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "rules",
+        "description": "validation rules"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String="
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "type",
+        "description": "are we matching or testing? Default = match"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 75,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Infinity",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 76,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~NaN",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 77,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~undefined",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 78,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~null",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 79,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Object",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 80,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~object",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 81,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Function",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 82,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~function",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 83,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Boolean",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 84,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~boolean",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 85,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Symbol",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 86,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Error",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 87,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~EvalError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 88,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~InternalError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 89,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~RangeError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 90,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~ReferenceError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 91,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~SyntaxError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 92,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~TypeError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 93,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~URIError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 94,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Number",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 95,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~number",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 96,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Date",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 97,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~String",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 98,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~string",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 99,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~RegExp",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 100,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 101,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int8Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 102,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 103,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8ClampedArray",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 104,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int16Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 105,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint16Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 106,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 107,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 108,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 109,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float64Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 110,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Map",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 111,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Set",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 112,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakMap",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 113,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakSet",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 114,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~ArrayBuffer",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 115,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~DataView",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 116,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~JSON",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 117,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Promise",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 118,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Generator",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 119,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~GeneratorFunction",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 120,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Reflect",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 121,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Proxy",
+    "access": null,
+    "description": "",
+    "lineNumber": 193,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 123,
+    "kind": "external",
+    "name": "CanvasRenderingContext2D",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~CanvasRenderingContext2D",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 124,
+    "kind": "external",
+    "name": "DocumentFragment",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~DocumentFragment",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 125,
+    "kind": "external",
+    "name": "Element",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Element",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~Element",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 126,
+    "kind": "external",
+    "name": "Event",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Event",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~Event",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 127,
+    "kind": "external",
+    "name": "Node",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Node",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~Node",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 128,
+    "kind": "external",
+    "name": "NodeList",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/NodeList",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~NodeList",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 129,
+    "kind": "external",
+    "name": "XMLHttpRequest",
+    "externalLink": "https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~XMLHttpRequest",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 130,
+    "kind": "external",
+    "name": "AudioContext",
+    "externalLink": "https://developer.mozilla.org/en/docs/Web/API/AudioContext",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~AudioContext",
+    "access": null,
+    "description": "",
+    "lineNumber": 34,
+    "builtinExternal": true
+  }
+]
