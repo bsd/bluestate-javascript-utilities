@@ -21,8 +21,9 @@
   },
   "homepage": "https://github.com/bsd/bluestate-javascript-utilities#readme",
   "devDependencies": {
+    "fs": "0.0.1-security",
     "gulp": "^4.0.2",
-    "gulp-esdoc": "^0.4.1"
+    "jsdoc-to-markdown": "^6.0.1"
   },
   "dependencies": {}
 }

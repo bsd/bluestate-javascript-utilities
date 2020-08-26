@@ -1,9 +1,9 @@
 const { dest, series, src } = require('gulp');
-const esdoc = require("gulp-esdoc");
+const fs = require("fs");
+const jsdoc2md = require('jsdoc-to-markdown');
 
 function document() {
-  return src('./Utils')
-    .pipe(esdoc({ destination: "./docs" }));
+  return jsdoc2md.render({ files: './Utils/*.js' }).then(output => fs.writeFileSync('api.md', output));
 }
 
 exports.document = series(document);
