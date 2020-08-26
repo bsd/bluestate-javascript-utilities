@@ -6,5 +6,5 @@
  * @return {Boolean} the converted string
  */
 export function spacetohyphen(string) {
-  return string.replace(/\s+/g, '-');
+    return string.replace(/\s+/g, '-');
 }

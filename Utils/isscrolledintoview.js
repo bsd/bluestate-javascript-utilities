@@ -11,4 +11,3 @@ export function isscrolledintoview(elem) {
     const elementBounds = elem.getBoundingClientRect();
     return elementBounds.top < window.innerHeight && elementBounds.bottom >= 0;
 }
-

@@ -5,9 +5,10 @@
  * @return {HTMLElement} HTML
  */
 export function decodehtml(data) {
-    const parser = new DOMParser;
+    const parser = new DOMParser();
     const dom = parser.parseFromString(
-        '<!doctype html><body>' + data,
-        'text/html');
+        `<!doctype html><body>${data}`,
+        'text/html',
+    );
     return dom.body.textContent;
 }

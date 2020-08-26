@@ -5,7 +5,7 @@
  * @return {String} A plain text string
  */
 export function striphtml(html) {
-  const parsed = new DOMParser().parseFromString(html, 'text/html');
+    const parsed = new DOMParser().parseFromString(html, 'text/html');
 
-  return parsed.body.textContent || '';
+    return parsed.body.textContent || '';
 }

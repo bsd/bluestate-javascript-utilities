@@ -6,9 +6,9 @@
  * @return {Array} the array of numbers
  */
 export function numbertoarray(number) {
-  let numbers = [];
-  for (let i = 0; i <= number; i++) {
-    numbers.push(i);
-  }
-  return numbers;
+    let numbers = [];
+    for (let i = 0; i <= number; i++) {
+        numbers.push(i);
+    }
+    return numbers;
 }

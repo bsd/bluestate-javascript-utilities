@@ -6,5 +6,5 @@
  * @return {Boolean} the converted string
  */
 export function removeintegers(string) {
-  return string.replace(/[0-9]/g, '');
+    return string.replace(/[0-9]/g, '');
 }

@@ -5,7 +5,7 @@
  * @return {Boolean} true if device is hover event-capable; false if not
  */
 export function hashover() {
-  let hoverQuery = window.matchMedia('(hover: hover)');
-  let anyQuery = window.matchMedia('(any-hover: none), (any-pointer: coarse)');
-  return !!((hoverQuery.matches || !anyQuery.matches));
+    let hoverQuery = window.matchMedia('(hover: hover)');
+    let anyQuery = window.matchMedia('(any-hover: none), (any-pointer: coarse)');
+    return !!((hoverQuery.matches || !anyQuery.matches));
 }

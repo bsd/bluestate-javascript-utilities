@@ -5,5 +5,5 @@
  * @return {Number} the rnadom number
  */
 export function generaterandominteger(max) {
-  return Math.floor(Math.random() * Math.floor(max));
+    return Math.floor(Math.random() * Math.floor(max));
 }

@@ -8,7 +8,7 @@ export function serialize(object) {
     const serialized = [];
     for (const key in object) {
         if (object.hasOwnProperty(key)) {
-            serialized.push(encodeURIComponent(key) + '=' + encodeURIComponent(object[key]));
+            serialized.push(`${encodeURIComponent(key)}=${encodeURIComponent(object[key])}`);
         }
     }
     return serialized.join('&');

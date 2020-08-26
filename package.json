@@ -21,9 +21,14 @@
   },
   "homepage": "https://github.com/bsd/bluestate-javascript-utilities#readme",
   "devDependencies": {
+    "eslint-plugin-import": "^2.22.0",
     "fs": "0.0.1-security",
     "gulp": "^4.0.2",
+    "gulp-eslint": "^6.0.0",
+    "gulp-if": "^3.0.0",
     "jsdoc-to-markdown": "^6.0.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "eslint-config-airbnb": "^18.2.0"
+  }
 }

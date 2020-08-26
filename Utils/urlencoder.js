@@ -5,9 +5,9 @@
  * @return {String} A URLEncoded string
  */
 export function urlencoder(requestdata) {
-  const encoded = Object.keys(requestdata).map((key) => {
-    return `${encodeURIComponent(key) }=${ encodeURIComponent(requestdata[key])}`;
-  }).join('&');
+    const encoded = Object.keys(requestdata).map((key) => {
+        return `${encodeURIComponent(key) }=${ encodeURIComponent(requestdata[key])}`;
+    }).join('&');
 
-  return encoded;
+    return encoded;
 }

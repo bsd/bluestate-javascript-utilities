@@ -6,13 +6,13 @@
  * @return {HTMLElement} element The closest element
  */
 export function closest(elem, selector) {
-  let element = elem;
-  let matchesSelector = element.matches || element.webkitMatchesSelector || element.mozMatchesSelector || element.msMatchesSelector;
-  while (element) {
-    if (matchesSelector.call(element, selector)) {
-      break;
+    let element = elem;
+    let matchesSelector = element.matches || element.webkitMatchesSelector || element.mozMatchesSelector || element.msMatchesSelector;
+    while (element) {
+        if (matchesSelector.call(element, selector)) {
+            break;
+        }
+        element = element.parentElement;
     }
-    element = element.parentElement;
-  }
-  return element;
+    return element;
 }

@@ -2,7 +2,7 @@
  * A class which helps sending messages accoss modules via a DOM node
  */
 export class MessageBus {
-  /**
+    /**
      * sendEvent
      *
      * A function which lets you dispatch a custom event on
@@ -13,9 +13,9 @@ export class MessageBus {
      * @param {Object} options Object which should be passed in the message
      * @param {Object} element DOM node which the event should be attached to
      */
-  sendEvent(eventName, options, element) {
-    let evt = document.createEvent('CustomEvent');
-    evt.initCustomEvent(eventName, false, false, options);
-    (element || this.element).dispatchEvent(evt);
-  }
+    sendEvent(eventName, options, element) {
+        let evt = document.createEvent('CustomEvent');
+        evt.initCustomEvent(eventName, false, false, options);
+        (element || this.element).dispatchEvent(evt);
+    }
 }

@@ -9,5 +9,3 @@ export function isie() {
     }
     return false;
 }
-
-

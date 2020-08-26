@@ -5,7 +5,7 @@
  * @return {Array} the sorted array
  */
 export function alphabetizearray(array) {
-  return array.sort((a, b) => {
-    return a.localeCompare(b);
-  });
+    return array.sort((a, b) => {
+        return a.localeCompare(b);
+    });
 }

@@ -7,11 +7,11 @@
  * @return {Boolean} true if value exists in obj, false if not
  */
 export function objectcontains(obj, value) {
-  for (let val in obj) {
-    if (obj[val] === value) {
-      return true;
+    for (let val in obj) {
+        if (obj[val] === value) {
+            return true;
+        }
     }
-  }
 
-  return false;
+    return false;
 }

@@ -2,7 +2,7 @@
  * A class which handles field validations
  */
 export class Validation {
-  /**
+    /**
      * validate
      *
      * A function which processes validations
@@ -13,7 +13,7 @@ export class Validation {
      * @param {Object=} rules validation rules
      * @param {String=} type are we matching or testing? Default = match
      */
-  validate(fieldvalue, fieldtype, rules, type = MISC.MATCH) {
-    return type === 'match' ? fieldvalue.match(rules[fieldtype].rule) : rules[fieldtype].rule.test(fieldvalue);
-  }
+    validate(fieldvalue, fieldtype, rules, type = MISC.MATCH) {
+        return type === 'match' ? fieldvalue.match(rules[fieldtype].rule) : rules[fieldtype].rule.test(fieldvalue);
+    }
 }

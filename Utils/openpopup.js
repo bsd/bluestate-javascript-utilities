@@ -8,6 +8,6 @@
  * @return {Object} an object the popup function is bound to
  */
 export function openpopup(url, windowName, w, h) {
-  return window.open(url, windowName,
-    `menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes,width=${ w },height=${ h }`);
+    return window.open(url, windowName,
+        `menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes,width=${ w },height=${ h }`);
 }
