@@ -5,6 +5,7 @@ export { convertdate } from './convertdate';
 export { debounce } from './debounce';
 export { generaterandominteger } from './generaterandominteger';
 export { getuserlangauge } from './getuserlangauge';
+export { geturlparameter } from './geturlparameter';
 export { getyoutubeidfromurl } from './getyoutubeidfromurl';
 export { hashover } from './hashover';
 export { isobjectempty } from './isobjectempty';

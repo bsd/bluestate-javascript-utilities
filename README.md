@@ -86,6 +86,9 @@ leading edge, instead of the trailing.</p>
 <dt><a href="#generaterandominteger">generaterandominteger(max)</a> ⇒ <code>Number</code></dt>
 <dd><p>Returns a random number</p>
 </dd>
+<dt><a href="#geturlparameter">geturlparameter(selector)</a> ⇒ <code>String</code></dt>
+<dd><p>Return value associated with name in url query string</p>
+</dd>
 <dt><a href="#getuserlangauge">getuserlangauge(uniform)</a></dt>
 <dd><p>Returns user&#39;s first langauge preference in the browser</p>
 </dd>
@@ -344,6 +347,18 @@ Returns a random number
 | Param | Type | Description |
 | --- | --- | --- |
 | max | <code>Number</code> | the highest number the random number can be |
+
+<a name="geturlparameter"></a>
+
+## geturlparameter(selector) ⇒ <code>String</code>
+Return value associated with name in url query string
+
+**Kind**: global function  
+**Returns**: <code>String</code> - element The closest element  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| selector | <code>String</code> | the selector you're looking for |
 
 <a name="getuserlangauge"></a>
 
