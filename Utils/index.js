@@ -10,7 +10,7 @@ export { hashover } from './hashover';
 export { isobjectempty } from './isobjectempty';
 export { MessageBus } from './messagebus';
 export { numbertoarray } from './numbertoarray';
-export { parsequery } from './queryparser';
+export { parsequery } from './parsequery';
 export { objectcontains } from './objectcontains';
 export { objectfromformdata } from './objectfromformdata';
 export { openpopup } from './openpopup';
