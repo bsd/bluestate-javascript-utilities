@@ -3,7 +3,9 @@ A collection of useful, vetted Javascript Utilities
 
 <dl>
 <dt><a href="#codeguidelines">Code Guidelines</a></dt>
+<dt><a href="#naming">Naming</a></dt>
 <dt><a href="#gitworkflow">Git Workflow</a></dt>
+<dt><a href="#linting">Linting</a></dt>
 <dt><a href="#generating">Generating documentation</a></dt>
 <dt><a href="#documentation">Utilities documentation</a></dt>
 </dl>
@@ -11,6 +13,11 @@ A collection of useful, vetted Javascript Utilities
 <a name="codeguidelines"></a>
 ## Code Guidelines
 The purpose of this repository is to house useful Javascript utilities that can be easily incorporated with any project that uses Javascript. As such, the utilities should be written with the assumption that no libraries are available. Utils should be written in [ES6](http://www.ecma-international.org/ecma-262/6.0/), and each util should be treated and structured as an [ES6 module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules). On a yearly basis, the maximum ES version to use should be reevaluated to match BlueState's browser support guidenlines.
+
+<a name="naming"></a>
+## Naming
+Util functions should be named after the work they perform. Util names should be in all lowercase, with no non alphabeltial characters in the name. Util filenames should match the function names _unless_ a Util file contains multiple related functions (see loader.js). In that case, the filename should describe what groups the functions. Function params should be camelCase.
+Class names should follow the ES6 class naming conventions, i.e. classnames should be TitleCase, with each word capitalized, with no non alphabeltial characters in the name. Functions in that class should follow the above function naming conventions. Class filenames should match the classname but in all lowercase.
 
 <a name="gitworkflow"></a>
 ### Git Workflow
@@ -28,6 +35,7 @@ This site uses the Git Flow workflow as described in detail [here](https://nvie.
 - Version number in package.json should match the current release version
 - Once the version number is incremented and the release branch is merged into `main` a tag should be created named after the version number using the following pattern: `vN.NN.NN` where `N` matches the numerals of the version number.
 
+<a name="linting"></a>
 ## Linting
 [ESLint](https://eslint.org) is available via gulp-eslint to lint the Javascript. See `./eslintrc.js` for the specific ESLint rules, which are essentially the airbnb eslint rules with a few modificactions given BlueState's workflow and client base.
 
