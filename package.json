@@ -29,6 +29,7 @@
     "jsdoc-to-markdown": "^6.0.1"
   },
   "dependencies": {
+    "babel-eslint": "^10.1.0",
     "eslint-config-airbnb": "^18.2.0"
   }
 }
