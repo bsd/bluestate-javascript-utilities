@@ -1,8 +1,8 @@
 /**
  * Return value associated with name in url query string
  *
- * @param {String} selector the selector you're looking for
- * @return {String} element The closest element
+ * @param {String} name of the query parameter
+ * @return {String} value of the query parameter
  */
 export function geturlparameter(name) {
     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
