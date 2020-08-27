@@ -86,7 +86,7 @@ leading edge, instead of the trailing.</p>
 <dt><a href="#generaterandominteger">generaterandominteger(max)</a> ⇒ <code>Number</code></dt>
 <dd><p>Returns a random number</p>
 </dd>
-<dt><a href="#geturlparameter">geturlparameter(selector)</a> ⇒ <code>String</code></dt>
+<dt><a href="#geturlparameter">geturlparameter(name)</a> ⇒ <code>String</code></dt>
 <dd><p>Return value associated with name in url query string</p>
 </dd>
 <dt><a href="#getuserlangauge">getuserlangauge(uniform)</a></dt>
@@ -350,15 +350,15 @@ Returns a random number
 
 <a name="geturlparameter"></a>
 
-## geturlparameter(selector) ⇒ <code>String</code>
+## geturlparameter(name) ⇒ <code>String</code>
 Return value associated with name in url query string
 
 **Kind**: global function  
-**Returns**: <code>String</code> - element The closest element  
+**Returns**: <code>String</code> - value of the query parameter  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| selector | <code>String</code> | the selector you're looking for |
+| name | <code>String</code> | of the query parameter |
 
 <a name="getuserlangauge"></a>
 
