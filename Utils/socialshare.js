@@ -1,8 +1,7 @@
 import { openpopup } from './openpopup';
-import { MISC, SELECTORS } from '../Constants/index';
 
 /**
- * A SocialShare module which handles Facebook and Twitter social share buttons
+ * A SocialShare module which handles Facebook, Twitter, Linkedin and email social share buttons
  *
  * @class SocialShare
  */
@@ -28,10 +27,12 @@ export class SocialShare {
             OGURL: 'meta[property="og:url"]',
         };
 
-        this.share.facebook = this.facebookShare.bind(this);
-        this.share.linkedin = this.linkedinShare.bind(this);
-        this.share.twitter = this.twitterShare.bind(this);
-        this.share.email = this.emailShare.bind(this);
+        this.share = {
+            facebook: this.facebookShare.bind(this),
+            linkedin: this.linkedinShare.bind(this),
+            twitter: this.twitterShare.bind(this),
+            email: this.emailShare.bind(this)
+        }
     }
 
     /**
@@ -77,6 +78,8 @@ export class SocialShare {
         this.getOGData();
         const shareURL = `//www.facebook.com/sharer.php?u=${this.OGINFO.URL}`;
         openpopup(shareURL, 'FacebookShare', 420, 300);
+
+        return this;
     }
 
     /**
@@ -87,6 +90,8 @@ export class SocialShare {
         this.getOGData();
         const shareURL = `//twitter.com/share?url=${this.OGINFO.URL}`;
         openpopup(shareURL, 'TwitterShare', 320, 300);
+
+        return this;
     }
 
     /**
@@ -97,9 +102,10 @@ export class SocialShare {
         const lURL1 = "//www.linkedin.com/shareArticle?mini=true&url=";
         const lURL2 = "&title=";
         const lURL3 = "&summary=";
-        const lURL4 = "&source=Razorfish";
-        const shareURL = lURL1 + location.host + OGINFO.URL + lURL2 + encodeURIComponent(OGINFO.TITLE) + lURL3 + encodeURIComponent(OGINFO.DESC)+ lURL4;
+        const shareURL = lURL1 + location.host + this.OGINFO.URL + lURL2 + encodeURIComponent(this.OGINFO.TITLE) + lURL3 + encodeURIComponent(this.OGINFO.DESC);
         openpopup(shareURL, 'LinkedInShare', 400, 600);
+
+        return this;
     }
 
      /**
@@ -112,5 +118,7 @@ export class SocialShare {
         const mURL3 = "&body=";
 
         window.location.href = mURL1 + mURL2 + subject + mURL3 + body;
+
+        return this;
     }
 }
