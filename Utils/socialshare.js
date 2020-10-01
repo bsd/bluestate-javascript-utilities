@@ -27,6 +27,11 @@ export class SocialShare {
             OGTITLE: 'meta[property="og:title"]',
             OGURL: 'meta[property="og:url"]',
         };
+
+        this.share.facebook = this.facebookShare.bind(this);
+        this.share.linkedin = this.linkedinShare.bind(this);
+        this.share.twitter = this.twitterShare.bind(this);
+        this.share.email = this.emailShare.bind(this);
     }
 
     /**
@@ -82,5 +87,30 @@ export class SocialShare {
         this.getOGData();
         const shareURL = `//twitter.com/share?url=${this.OGINFO.URL}`;
         openpopup(shareURL, 'TwitterShare', 320, 300);
+    }
+
+    /**
+     * Linkedin share on click
+     *
+     */
+    linkedinShare() {
+        const lURL1 = "//www.linkedin.com/shareArticle?mini=true&url=";
+        const lURL2 = "&title=";
+        const lURL3 = "&summary=";
+        const lURL4 = "&source=Razorfish";
+        const shareURL = lURL1 + location.host + OGINFO.URL + lURL2 + encodeURIComponent(OGINFO.TITLE) + lURL3 + encodeURIComponent(OGINFO.DESC)+ lURL4;
+        openpopup(shareURL, 'LinkedInShare', 400, 600);
+    }
+
+     /**
+     * Send email thorough mailto on click
+     *
+     */
+    emailShare(subject, body) {
+        const mURL1 = "mailto:";
+        const mURL2 = "?subject=";
+        const mURL3 = "&body=";
+
+        window.location.href = mURL1 + mURL2 + subject + mURL3 + body;
     }
 }
