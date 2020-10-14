@@ -1,4 +1,5 @@
 export { alphabetizearray } from './alphabetizearray';
+export { arrayofmodels } from './arrayofmodels';
 export { closest } from './closest';
 export { createloader } from './loader';
 export { convertdate } from './convertdate';
