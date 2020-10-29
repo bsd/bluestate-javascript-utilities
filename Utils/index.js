@@ -7,6 +7,7 @@ export { generaterandominteger } from './generaterandominteger';
 export { getuserlangauge } from './getuserlangauge';
 export { getyoutubeidfromurl } from './getyoutubeidfromurl';
 export { hashover } from './hashover';
+export { imagenaturalsize } from './imagenaturalsize';
 export { isobjectempty } from './isobjectempty';
 export { MessageBus } from './messagebus';
 export { numbertoarray } from './numbertoarray';
