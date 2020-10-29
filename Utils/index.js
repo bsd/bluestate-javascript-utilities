@@ -14,6 +14,7 @@ export { parsequery } from './parsequery';
 export { objectcontains } from './objectcontains';
 export { objectfromformdata } from './objectfromformdata';
 export { openpopup } from './openpopup';
+export { percentage } from './percentage';
 export { removeloader } from './loader';
 export { removeintegers } from './removeintegers';
 export { removequerystring } from './removequerystring';
