@@ -8,7 +8,6 @@
  * @return {Array} the modelled array
  */
 export function arrayofmodels(items, Model, ...args) {
-  console.log(items);
   const params = !!args ? args : null;
   let arr = [];
 
