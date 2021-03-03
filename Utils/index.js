@@ -20,6 +20,7 @@ export { percentage } from './percentage';
 export { removeloader } from './loader';
 export { removeintegers } from './removeintegers';
 export { removequerystring } from './removequerystring';
+export { serialize } from './serialize';
 export { SocialShare } from './socialshare';
 export { spacetohyphen } from './spacetohyphen';
 export { striphtml } from './striphtml';
